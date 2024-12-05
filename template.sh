@@ -43,8 +43,16 @@ fi
 
 # Generate template and open with VS code
 template="with open('day_$DATE.txt', 'r') as f:"
-echo $template > day$DATE\_1.py
-echo $template > day$DATE\_2.py
+
+if [ ! -f "day$DATE\_1.py" ];
+then
+    echo $template > day$DATE\_1.py
+fi
+
+if [ ! -f "day$DATE\_2.py" ];
+then
+    echo $template > day$DATE\_2.py
+fi
 code .
 
 # Windows
